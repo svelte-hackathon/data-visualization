@@ -5,7 +5,7 @@ type MapDatasetInput = {
 
 export function mapDataset(input: MapDatasetInput) {
   const { initialData, setLabel } = input;
-  const uniqueKeys: Set<string> = new Set([]);
+  const uniqueKeys = new Set<string>();
   initialData.forEach((datapoint) => {
     Object.keys(datapoint)
       .filter((key) => !uniqueKeys.has(key))
