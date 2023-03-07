@@ -1,14 +1,12 @@
-export enum BorderSkips {
-  start = 'start',
-  end = 'end',
-  middle = 'middle',
-  bottom = 'bottom',
-  left = 'left',
-  top = 'top',
-  right = 'right',
-  false = 'none',
-  true = 'all'
-}
+export type BorderSkips =
+  | 'start'
+  | 'end'
+  | 'middle'
+  | 'bottom'
+  | 'left'
+  | 'top'
+  | 'right'
+  | boolean;
 
 export type BarChartBar = {
   data: number;
