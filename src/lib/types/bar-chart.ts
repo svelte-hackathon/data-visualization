@@ -6,7 +6,7 @@ export type BorderSkips =
   | 'left'
   | 'top'
   | 'right'
-  | boolean;
+  | false;
 
 export type BarChartBar = {
   data: number;
