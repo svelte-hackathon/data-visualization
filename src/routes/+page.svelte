@@ -13,7 +13,7 @@
     Legend,
     type ChartOptions,
     type ChartData,
-    type ChartDataset,
+    type ChartDataset
   } from 'chart.js';
   ChartJS.register(BarController, LinearScale, CategoryScale, BarElement, Title, Legend);
   const ingestedData: Array<BarChartBar> = [
@@ -29,7 +29,7 @@
       hoverBackgroundColor: 'green',
       hoverBorderColor: 'yellow',
       hoverBorderWidth: 4,
-      hoverBorderRadius: 10,
+      hoverBorderRadius: 10
     },
     {
       data: 135,
@@ -85,18 +85,21 @@
       hoverBackgroundColor: 'purple',
       hoverBorderColor: 'pink',
       hoverBorderWidth: 4,
-      hoverBorderRadius: 10,
+      hoverBorderRadius: 10
     }
   ];
 
-  const { labels, outputObject } = mapDataset({ initialData: ingestedData, setLabel: 'My First Dataset'})
-  const data: ChartData<"bar"> = {
+  const { labels, outputObject } = mapDataset({
+    initialData: ingestedData,
+    setLabel: 'My First Dataset'
+  });
+  const data: ChartData<'bar'> = {
     labels,
     // @todo determine if there is a better way to handle this conversion, likely some sort of assertion function etc.
-    datasets: [<unknown> outputObject as ChartDataset<"bar">],
+    datasets: [(<unknown>outputObject) as ChartDataset<'bar'>]
   };
 
-  const options: ChartOptions<"bar"> = {
+  const options: ChartOptions<'bar'> = {
     scales: {
       y: {
         beginAtZero: true

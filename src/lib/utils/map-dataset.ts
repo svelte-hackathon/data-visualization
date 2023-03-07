@@ -1,7 +1,7 @@
 type MapDatasetInput = {
   initialData: Array<Record<string, unknown>>;
   setLabel: string;
-}
+};
 
 export function mapDataset(input: MapDatasetInput) {
   const { initialData, setLabel } = input;
