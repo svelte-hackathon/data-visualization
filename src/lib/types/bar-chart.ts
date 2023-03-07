@@ -12,7 +12,7 @@ export enum BorderSkips {
 
 export type BarChartBar = {
   data: number;
-  label?: string;
+  label: string;
   backgroundColor?: string;
   borderWidth?: number;
   borderColor?: string;
