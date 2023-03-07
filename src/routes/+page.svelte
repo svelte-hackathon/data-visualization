@@ -1,7 +1,6 @@
 <script lang="ts">
   import BarChart from '$lib/charts/bar-chart.svelte';
   import type { BarChartBar } from '$lib/types/bar-chart';
-  import borderskipCheck from '$lib/utils/border-skip-check';
   import { mapDataset } from '$lib/utils/map-dataset';
   import {
     Chart as ChartJS,
@@ -23,7 +22,7 @@
       backgroundColor: 'yellow',
       borderColor: 'green',
       borderWidth: 2,
-      borderSkipped: borderskipCheck('top'),
+      borderSkipped: 'top',
       borderRadius: 5,
       inflateAmount: 5,
       hoverBackgroundColor: 'green',
@@ -37,7 +36,7 @@
       backgroundColor: 'blue',
       borderColor: 'red',
       borderWidth: 2,
-      borderSkipped: borderskipCheck('top'),
+      borderSkipped: 'top',
       borderRadius: 5,
       inflateAmount: 5,
       hoverBackgroundColor: 'red',
@@ -51,7 +50,7 @@
       backgroundColor: 'black',
       borderColor: 'white',
       borderWidth: 2,
-      borderSkipped: borderskipCheck('top'),
+      borderSkipped: 'top',
       borderRadius: 5,
       inflateAmount: 5,
       hoverBackgroundColor: 'white',
@@ -65,7 +64,7 @@
       backgroundColor: 'white',
       borderColor: 'black',
       borderWidth: 2,
-      borderSkipped: borderskipCheck('top'),
+      borderSkipped: 'top',
       borderRadius: 5,
       inflateAmount: 5,
       hoverBackgroundColor: 'black',
@@ -79,7 +78,7 @@
       backgroundColor: 'pink',
       borderColor: 'purple',
       borderWidth: 2,
-      borderSkipped: borderskipCheck('top'),
+      borderSkipped: 'top',
       borderRadius: 5,
       inflateAmount: 5,
       hoverBackgroundColor: 'purple',
