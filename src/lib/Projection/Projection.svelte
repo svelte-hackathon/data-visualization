@@ -83,8 +83,8 @@
   }
 
   let p1:[number, number], p2: [number, number] = [0, 0], r1, r2 = [0, 0, 0];
-  let ip;
-  let iv;
+  let ip = () => [];
+  let iv = () => [];
   function worldTour(countryName: string) {
     const country = countries.find((country) => country?.properties?.name === countryName);
 

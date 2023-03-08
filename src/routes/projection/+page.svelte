@@ -10,9 +10,7 @@
   $:countries = feature(data.world, data.world.objects.countries).features;
 </script>
 
-{#if data.world}
 <Projection {width} {name} world={data.world}/>
-{/if}
 
 <input type="number" bind:value={width} />
 
