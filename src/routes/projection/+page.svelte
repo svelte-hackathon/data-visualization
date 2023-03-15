@@ -1,4 +1,5 @@
 <script lang="ts">
+  import './page.css';
   import Projection from '$lib/Projection/Projection.svelte';
   import { feature } from 'topojson-client';
   import type { PageData } from './$types';
@@ -7,6 +8,7 @@
   export let width = 720;
   export let name = '';
 
+  //@ts-ignore the types package for this is wrong
   $: countries = feature(data.world, data.world.objects.countries).features;
 </script>
 

@@ -7,7 +7,6 @@
     type GeoPermissibleObjects,
     type ExtendedFeatureCollection
   } from 'd3-geo';
-
   import { tween } from './tween';
   import { feature } from 'topojson-client';
   import { Versor } from './Versor';
@@ -25,10 +24,10 @@
   let projection = geoOrthographic();
   let position1: [number, number] = [0, 0];
   let position2: [number, number] = [0, 0];
-  let r1 = [0, 0, 0];
-  let r2 = [0, 0, 0];
+  let r1: [number, number, number] = [0, 0, 0];
+  let r2: [number, number, number] = [0, 0, 0];
   let interpolatePosition: (t: number) => [number, number];
-  let interpolateVersor: (t: any) => number[];
+  let interpolateVersor: (t: number) => [number, number, number];
   let inAnimation: Promise<void> | null = null;
   let outAnimation: Promise<void> | null = null;
 
