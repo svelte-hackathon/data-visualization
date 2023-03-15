@@ -7,16 +7,16 @@
   export let width = 720;
   export let name = '';
 
-  $:countries = feature(data.world, data.world.objects.countries).features;
+  $: countries = feature(data.world, data.world.objects.countries).features;
 </script>
 
-<Projection {width} {name} world={data.world}/>
+<Projection {width} {name} world={data.world} />
 
 <input type="number" bind:value={width} />
 
 <select bind:value={name}>
-    {#each countries as country }
+  {#each countries as country}
     {@const countryName = country.properties?.name}
-        <option value={countryName}>{countryName}</option>
-    {/each}
+    <option value={countryName}>{countryName}</option>
+  {/each}
 </select>
