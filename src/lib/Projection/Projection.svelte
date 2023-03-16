@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { tweened } from 'svelte/motion';
   import {
     geoPath,
     geoOrthographic,
@@ -7,13 +8,13 @@
     type GeoPermissibleObjects,
     type ExtendedFeatureCollection
   } from 'd3-geo';
-  import { tween } from './tween';
   import { feature } from 'topojson-client';
   import { Versor } from './Versor';
 
   export let width = 720;
   export let tilt = 20;
   export let name = ''; //name of country
+  export let duration = 1500;
   export let world: TopoJSON.Topology;
 
   const sphere: GeoPermissibleObjects = { type: 'Sphere' };
@@ -24,8 +25,8 @@
   let projection = geoOrthographic();
   let position1: [number, number] = [0, 0];
   let position2: [number, number] = [0, 0];
-  let r1: [number, number, number] = [0, 0, 0];
-  let r2: [number, number, number] = [0, 0, 0];
+  let rotation1: [number, number, number] = [0, 0, 0];
+  let rotation2: [number, number, number] = [0, 0, 0];
   let interpolatePosition: (t: number) => [number, number];
   let interpolateVersor: (t: number) => [number, number, number];
   let inAnimation: Promise<void> | null = null;
@@ -64,11 +65,14 @@
 
     countryGraphic = country;
 
-    (position1 = position2), (position2 = geoCentroid(countryGraphic));
-    (r1 = r2), (r2 = [-position2[0], tilt - position2[1], 0]);
+    position1 = position2;
+    position2 = geoCentroid(countryGraphic);
+
+    rotation1 = rotation2;
+    rotation2 = [-position2[0], tilt - position2[1], 0];
 
     interpolatePosition = geoInterpolate(position1, position2);
-    interpolateVersor = Versor.interpolateAngles(r1, r2);
+    interpolateVersor = Versor.interpolateAngles(rotation1, rotation2);
 
     inAnimation = tween.set(1);
     requestAnimationFrame(inAnimationFunc);
@@ -102,6 +106,9 @@
   $: countries = getCountries(world);
   $: worldTour(name);
   $: path = geoPath(projection);
+  $: tween = tweened(0, {
+    duration
+  });
 </script>
 
 <svg {width} {height} viewBox="0 0 {width} {height}">

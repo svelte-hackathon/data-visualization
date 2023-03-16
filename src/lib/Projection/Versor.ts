@@ -49,16 +49,19 @@ export class Versor {
     [a2, b2, c2, d2]: [number, number, number, number]
   ): (t: number) => [number, number, number, number] {
     let dot = a1 * a2 + b1 * b2 + c1 * c2 + d1 * d2;
-    if (dot < 0) (a2 = -a2), (b2 = -b2), (c2 = -c2), (d2 = -d2), (dot = -dot);
+    if (dot < 0) {
+      [a2, b2, c2, d2] = [-a2, -b2, -c2, -d2];
+      dot = -dot;
+    }
     if (dot > 0.9995) return Versor.interpolateLinear([a1, b1, c1, d1], [a2, b2, c2, d2]);
     const theta0 = Math.acos(Math.max(-1, Math.min(1, dot)));
     const l = Math.hypot((a2 -= a1 * dot), (b2 -= b1 * dot), (c2 -= c1 * dot), (d2 -= d1 * dot));
     (a2 /= l), (b2 /= l), (c2 /= l), (d2 /= l);
     return (t: number) => {
       const theta = theta0 * t;
-      const s = Math.sin(theta);
-      const c = Math.cos(theta);
-      return [a1 * c + a2 * s, b1 * c + b2 * s, c1 * c + c2 * s, d1 * c + d2 * s];
+      const sine = Math.sin(theta);
+      const cosine = Math.cos(theta);
+      return [a1 * cosine + a2 * sine, b1 * cosine + b2 * sine, c1 * cosine + c2 * sine, d1 * cosine + d2 * sine];
     };
   }
 }
