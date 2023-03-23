@@ -39,4 +39,4 @@
 
 </script>
 
-<PolarAreaChart {data} {options} chartID="pie-chart-1" />
+<PolarAreaChart {data} {options} chartID="polar-area-chart-1" />
