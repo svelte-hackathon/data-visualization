@@ -23,7 +23,7 @@
       datasets: [
         {
           data: [404, 301, 200],
-          label: 'Mmmmm Pie',
+          label: 'Mmmmm Doughnut',
           backgroundColor: ['yellow', 'green', 'red']
         }
       ]
