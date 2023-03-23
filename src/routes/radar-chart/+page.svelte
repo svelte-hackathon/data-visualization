@@ -27,17 +27,17 @@
     datasets: [
       {
         data: [404, 301, 200],
-        label: 'Scanning For Data...',
+        label: 'Scanning For Dataset 1...',
         backgroundColor: 'yellow'
       },
       {
         data: [301, 200, 404],
-        label: 'Scanning For Data...',
+        label: 'Scanning For Dataset 2...',
         backgroundColor: 'green'
       },
       {
         data: [200, 404, 301],
-        label: 'Scanning For Data...',
+        label: 'Scanning For Dataset 3...',
         backgroundColor: 'red'
       }
     ]
